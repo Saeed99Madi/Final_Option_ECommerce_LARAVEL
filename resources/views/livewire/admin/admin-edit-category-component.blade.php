@@ -34,6 +34,7 @@
                                     <lable class="col-md-4 control-label">Category Name</lable>
                                     <div class="col-md-4">
                                         <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateslug"/>
+                                        @error('name') <p class="text-danger">{{$message}}</p>@enderror
 
                                     </div>
                                 </div>
@@ -41,14 +42,13 @@
                                     <lable class="col-md-4 control-label">Category Slug</lable>
                                     <div class="col-md-4">
                                         <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug" />
-
+                                        @error('slug') <p class="text-danger">{{$message}}</p>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <lable class="col-md-4 control-label"></lable>
                                     <div class="col-md-4">
                                         <button type="submit" class="btn btn-primary">Update</button>
-
                                     </div>
                                 </div>
                             </form>
