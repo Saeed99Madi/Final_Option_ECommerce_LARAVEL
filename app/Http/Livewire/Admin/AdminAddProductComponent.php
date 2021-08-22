@@ -36,7 +36,7 @@ class AdminAddProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
     public function updated($fields){
-        $this->validate($fields,[
+        $this->validateOnly($fields,[
             'name'=>'required',
             'slug'=>'required|unique:products',
             'short_description'=>'required',
