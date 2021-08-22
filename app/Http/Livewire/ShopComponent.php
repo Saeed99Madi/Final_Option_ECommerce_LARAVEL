@@ -21,9 +21,8 @@ class ShopComponent extends Component
         $this->max_price = 1000;
     }
     public function addToWishList($product_id,$product_name,$product_price){
-        Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->assosiate('App\Models\Product');
-
-
+        Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        $this->emitTo('wishlist-count-component','refreshComponent');
     }
     public function store($product_id,$product_name,$product_price)
     {
