@@ -37,6 +37,7 @@ class CartComponent extends Component
 
     public function render()
     {
+        $this->setAmountForCheckout();
         if(session()->has('coupon'))
         {
             if(Cart::instance('cart')->subtotal() < session()->get('coupon')['cart_value'])
@@ -48,7 +49,7 @@ class CartComponent extends Component
                 $this->calculateDiscounts();
             }
         }
-        $this->setAmountForCheckout();
+
         return view('livewire.cart-component')->layout("layouts.base");
     }
 
@@ -138,7 +139,12 @@ class CartComponent extends Component
     }
     public function setAmountForCheckout()
     {
-        if(session()->has('coupon'))
+        if(!Cart::instance('cart')->count() > 0)
+        {
+            session()->forget('checkout');
+            return;
+        }
+        elseif(session()->has('coupon'))
         {
             session()->put('checkout',[
                'discount' =>$this->discount,
@@ -150,7 +156,7 @@ class CartComponent extends Component
         else{
             session()->put('checkout',[
                 'discount' =>0,
-                'subtotal' => Cart::instance('cart')->subtotal(),
+                'subtotal' =>Cart::instance('cart')->subtotal(),
                 'tax' =>Cart::instance('cart')->tax(),
                 'total'=>Cart::instance('cart')->total()
             ]);
