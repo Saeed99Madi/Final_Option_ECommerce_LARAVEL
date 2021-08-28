@@ -150,14 +150,14 @@
                 <div class="summary summary-checkout">
                     <div class="summary-item payment-method">
                         <h4 class="title-box">Payment Method</h4>
-                        @if($paymentmode == 'card')
+                        @if($paymentmode == 'car')
                         <div class="wrap-address-billing">
                             @if(Session::has('stripe_error'))
                                 <div class="alert alert-danger" role="alert">{{Session::get('stripe_error')}}</div>
                             @endif
                             <p class="row-in-form">
                                 <label for="card-number">Card Number:</label>
-                                <input  type="text" name="zip-code" value="" placeholder="Card Number" wire:model="card_no">
+                                <input  type="text" name="card-no" value="" placeholder="Card Number" wire:model="card_no">
                                 @error('card_no')<span class="text-danger">{{$message}}</span>@enderror
                             </p>
                             <p class="row-in-form">
@@ -170,7 +170,7 @@
                                 <input  type="text" name="exp-year" value="" placeholder="YYYY" wire:model="exp_year">
                                 @error('exp_year')<span class="text-danger">{{$message}}</span>@enderror
                             </p>   <p class="row-in-form">
-                                <label for="carcvc">CVC:</label>
+                                <label for="cvc">CVC:</label>
                                 <input  type="password" name="cvc" value="" placeholder="CVC" wire:model="cvc">
                                 @error('cvc')<span class="text-danger">{{$message}}</span>@enderror
                             </p>
@@ -183,7 +183,7 @@
                                 <span class="payment-desc">Order Now Pay On Delivery</span>
                             </label>
                             <label class="payment-method">
-                                <input name="payment-method" id="payment-method-visa" value="card" type="radio" wire:model="paymentmode">
+                                <input name="payment-method" id="payment-method-visa" value="car" type="radio" wire:model="paymentmode">
                                 <span>Debit / Credit Card</span>
                                 <span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
                             </label>

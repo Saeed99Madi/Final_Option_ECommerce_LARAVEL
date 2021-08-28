@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'STRIPE_KEY' =>env('STRIPE_KEY', 'sk_test_51JSsGNJFgkIcosqalOqaPr8ZgKKbQyRNF0XTSL7pPMUtfLtEVkgFdPG3JEz5Y7812yOhQlOOIZjAIgdYZZwmh8mv00AGWF75ZQ'),
 
     /*
     |--------------------------------------------------------------------------

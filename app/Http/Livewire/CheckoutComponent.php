@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
-use Stripe;
+use Cartalyst\Stripe\Stripe;
 
 
 class CheckoutComponent extends Component
@@ -79,7 +79,7 @@ class CheckoutComponent extends Component
                 's_zipcode'=>'required',
             ]);
         }
-        if($this->paymentmode == 'card')
+        if($this->paymentmode == 'car')
         {
             $this->ValidateOnly($fields,[
                 'card_no'=>'required|numeric',
@@ -91,6 +91,7 @@ class CheckoutComponent extends Component
     }
     public function placeOrder()
     {
+
         $this->validate([
             'ship_to_different'=>'required',
             'firstname'=>'required',
@@ -105,7 +106,7 @@ class CheckoutComponent extends Component
             'zipcode'=>'required',
             'paymentmode' =>'required'
         ]);
-        if($this->paymentmode == 'card')
+        if($this->paymentmode == 'car')
         {
             $this->Validate([
                 'card_no' => 'required|numeric',
@@ -141,9 +142,8 @@ class CheckoutComponent extends Component
             $orderItem->price = $item->price;
             $orderItem->quantity = $item->qty;
             $orderItem->save();
-
         }
-        if($this->ship_to_different)
+        if($this->ship_to_different==1)
         {
             $this->validate([
                 'ship_to_different'=>'required',
@@ -178,18 +178,23 @@ class CheckoutComponent extends Component
             $this->makeTransaction($order->id,'pending');
             $this->resetCart();
         }
-        elseif($this->paymentmode =='card')
+        elseif($this->paymentmode =='car')
         {
-            $stripe = Stripe::make(env('STRIPE_KEY'));
+
+            $stripe = Stripe::make(config('app.STRIPE_KEY'));
+
             try{
-                $token = $stripe->tokens()->create([
-                    'card'=>[
-                        'number'=>$this->card_no,
-                        'exp-month'=>$this->exp_month,
-                        'exp-year'=>$this->exp_year,
-                        'cvc'=>$this->cvc
-                    ]
-                ]);
+
+               $token = $stripe->tokens()->create([
+                   'card' => [
+                       'number'   => $this->card_no,
+                       'exp_month'=> $this->exp_month,
+                       'exp_year' => $this->exp_year,
+                       'cvc'      => $this->cvc,
+                   ],
+               ]);
+
+
                 if(!isset($token['id']))
                 {
                     session()->flash('stripe_error','the stripe token was not generated correctly!');
@@ -221,10 +226,14 @@ class CheckoutComponent extends Component
                     'description'=>'payment for order no' . $order->id,
 
                 ]);
-                if ($charge['status']=='succeed'){
+
+                if ($charge['status'] =='succeeded')
+                {
+
+
                     $this->makeTransaction($order->id,'approved');
                     $this->resetCart();
-
+                    $this->render();
                 }
                 else{
                     session()->flash('stripe_error','Error in Transaction!');
@@ -236,27 +245,19 @@ class CheckoutComponent extends Component
                 $this->thankyou = 0;
             }
         }
-        $this->thankyou = 1;
-        Cart::instance('cart')->destroy();
-        session()->forget('checkout');
-
-
     }
     public function makeTransaction($order_id,$status)
     {
-
-
-    $transaction = new Transaction();
+        $transaction = new Transaction();
         $transaction->user_id = Auth::user()->id;
         $transaction->order_id = $order_id;
         $transaction->mode=$this->paymentmode;
         $transaction->status = $status;
         $transaction->save();
-
     }
     public function resetCart()
     {
-        $this->thankyou =1;
+        $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
     }
@@ -266,7 +267,7 @@ class CheckoutComponent extends Component
         {
             return redirect()->route('login');
         }
-        elseif($this->thankyou)
+        elseif($this->thankyou == 1 )
         {
             return redirect()->route('thankyou');
         }
