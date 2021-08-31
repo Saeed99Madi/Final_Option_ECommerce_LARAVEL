@@ -26,6 +26,8 @@ use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankYouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserOrderComponent;
+use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
 /*
@@ -58,6 +60,8 @@ Route::get('/thank-you' , ThankYouComponent::class)->name('thankyou');
 Route::middleware(['auth:sanctum', 'verified'])->group(function ()
 {
 Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+Route::get('/user/orders',UserOrderComponent::class)->name('user.orders');
+Route::get('/user/orders/{order_id}',UserOrderDetailsComponent::class)->name('user.orderdetails');
 });
 //route Admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function ()
