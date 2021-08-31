@@ -25,6 +25,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankYouComponent;
+use App\Http\Livewire\User\UserChangePasswordComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserOrderComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
@@ -64,6 +65,7 @@ Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboar
 Route::get('/user/orders',UserOrderComponent::class)->name('user.orders');
 Route::get('/user/orders/{order_id}',UserOrderDetailsComponent::class)->name('user.orderdetails');
 Route::get('user/review/{order_item_id}',UserReviewComponent::class)->name('user.review');
+Route::get('/user/change-password',UserChangePasswordComponent::class)->name('user.changepassword');
 });
 //route Admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function ()
