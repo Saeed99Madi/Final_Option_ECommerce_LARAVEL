@@ -89,6 +89,9 @@
                                                     <a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
                                                 </li>
                                                 <li class="menu-item" >
+                                                    <a title="Contact Messages" href="{{route('admin.contact')}}">Contact Messages</a>
+                                                </li>
+                                                <li class="menu-item" >
                                                     <a  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                 </li>
                                                 <form id="logout-form" method ="POST" action="{{route('logout')}}">
@@ -188,7 +191,7 @@
                                 <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
                             </li>
                             <li class="menu-item">
-                                <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+                                <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                             </li>
                         </ul>
                     </div>
