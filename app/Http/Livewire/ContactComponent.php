@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Contact;
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
@@ -42,6 +43,15 @@ class ContactComponent extends Component
     }
     public function render()
     {
-        return view('livewire.contact-component')->layout('layouts.base');
+
+        $setting=Setting::find(1);
+        if($setting)
+        {
+            return view('livewire.contact-component',['setting'=>$setting])->layout('layouts.base');
+        }
+        else{
+            return view('livewire.contact-component')->layout('layouts.base');
+        }
+
     }
 }
