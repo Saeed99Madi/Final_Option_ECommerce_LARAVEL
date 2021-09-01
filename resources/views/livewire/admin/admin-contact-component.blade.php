@@ -25,9 +25,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @php
-                                $i=1;
-                            @endphp
+                                @php
+                                    $i=1;
+                                @endphp
                                 @foreach($contacts as $contact)
                                     <tr>
                                         <td>{{$i++}}</td>
