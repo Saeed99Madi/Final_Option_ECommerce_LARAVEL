@@ -49,7 +49,6 @@
                                 </div>
                                 <h2 class="box-title">Contact Detail</h2>
                                 <div class="wrap-icon-box">
-
                                     <div class="icon-box-item">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                         <div class="right-info">
@@ -57,7 +56,6 @@
                                             <p>{{$setting->email}}</p>
                                         </div>
                                     </div>
-
                                     <div class="icon-box-item">
                                         <i class="fa fa-phone" aria-hidden="true"></i>
                                         <div class="right-info">

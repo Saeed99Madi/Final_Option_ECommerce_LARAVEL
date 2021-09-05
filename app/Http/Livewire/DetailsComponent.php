@@ -46,7 +46,7 @@ class DetailsComponent extends Component
                 'product'=>$product,
                 'popular_products'=>$popular_products,
                 'related_products'=>$related_products,
-                'sale'=>$sale
+                'sale'=>$sale,
             ]
         )->layout("layouts.base");
     }
