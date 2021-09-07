@@ -22,6 +22,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+
         $product_name= $this->faker->unique()->words($nb=2,$asText=true);
         $slug=Str::slug($product_name);
         return [
