@@ -8,17 +8,16 @@ use Livewire\Component;
 use Livewire\WithPagination;
 
 
-
 class AdminProductComponent extends Component
 {
     use WithPagination;
     public function destroyProduct($id)
     {
-        $destinationPath = 'assets/images/products';
-        $product = Product::find($id);
 
+        $product = Product::find($id);
         if($product->image)
         {
+            $destinationPath = 'assets/images/products';
             File::delete($destinationPath.'/'.$product->image);
             if($product->images)
             {
@@ -31,7 +30,6 @@ class AdminProductComponent extends Component
         }
         $product->delete();
         session()->flash('message',' Product has been Deleted Successfully !! ');
-
     }
     public function render()
     {
