@@ -113,15 +113,15 @@
                                     @php
                                         $c_products = DB::table('products')->where('category_id',$category->id)->get()->take($no_of_products);
                                     @endphp
-                                    @foreach($c_products as $c_product)
+                                    @foreach($category->products as $c_product)
                                         <div class="product product-style-2 equal-elem ">
                                             <div class="product-thumnail">
-                                                <a href="{{route('product.details',['slug',$c_product->slug])}}" title="{{$c_product->name}}">
+                                                <a href="{{route('product.details',['slug'=>$c_product->slug])}}" title="{{$c_product->name}}">
                                                     <figure><img src="{{asset('assets/images/products')}}/{{$c_product->image}}" width="800" height="800" alt="{{$c_product->name}}"></figure>
                                                 </a>
                                             </div>
                                             <div class="product-info">
-                                                <a href="{{route('product.details',['slug',$c_product->slug])}}" class="product-name"><span>{{$c_product->name}}</span></a>
+                                                <a href="{{route('product.details',['slug'=>$c_product->slug])}}" class="product-name"><span>{{$c_product->name}}</span></a>
                                                 <div class="wrap-price"><span class="product-price">${{$c_product->regular_price}}</span></div>
                                             </div>
                                         </div>
@@ -129,13 +129,9 @@
                             </div>
                         </div>
                         @endforeach
-
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </main>

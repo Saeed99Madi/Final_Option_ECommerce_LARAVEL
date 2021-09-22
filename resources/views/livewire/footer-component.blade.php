@@ -18,7 +18,6 @@
                             <h4 class="fc-name">Guarantee</h4>
                             <p class="fc-desc">30 Days Money Back</p>
                         </div>
-
                     </li>
                     <li class="fc-info-item">
                         <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
@@ -26,7 +25,6 @@
                             <h4 class="fc-name">Safe Payment</h4>
                             <p class="fc-desc">Safe your online payment</p>
                         </div>
-
                     </li>
                     <li class="fc-info-item">
                         <i class="fa fa-life-ring" aria-hidden="true"></i>
@@ -34,7 +32,6 @@
                             <h4 class="fc-name">Online Suport</h4>
                             <p class="fc-desc">We Have Support 24/7</p>
                         </div>
-
                     </li>
                 </ul>
             </div>
