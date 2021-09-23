@@ -95,6 +95,9 @@
                                                     <a title="Settings" href="{{route('admin.settings')}}">Settings</a>
                                                 </li>
                                                 <li class="menu-item" >
+                                                    <a title="Team Members Management" href="{{route('admin.team_members')}}">Team Members Management</a>
+                                                </li>
+                                                <li class="menu-item" >
                                                     <a  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                 </li>
                                                 <form id="logout-form" method ="POST" action="{{route('logout')}}">
@@ -182,7 +185,7 @@
                                 <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
-                                <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+                                <a href="/about-us" class="link-term mercado-item-title">About Us</a>
                             </li>
                             <li class="menu-item">
                                 <a href="/shop" class="link-term mercado-item-title">Shop</a>

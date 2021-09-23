@@ -67,7 +67,6 @@ class AdminAddProductComponent extends Component
             'quantity'=>'required|numeric',
             'image'=>'required|mimes:jpeg,png',
             'category_id'=>'required',
-
         ]);
         $product = new Product();
         $product->name = $this->name;

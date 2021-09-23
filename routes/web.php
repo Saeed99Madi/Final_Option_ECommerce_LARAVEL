@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Livewire\AboutUsComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCouponsComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminAddTeamMemberComponent;
 use App\Http\Livewire\Admin\AdminCategorycomponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminCouponsComponent;
@@ -12,6 +14,7 @@ use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditCouponsComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
+use App\Http\Livewire\Admin\AdminEditTeamMembersComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
@@ -19,6 +22,7 @@ use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
+use App\Http\Livewire\Admin\AdminTeamMembers;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -54,6 +58,8 @@ Route::get('/',HomeComponent::class);
 Route::get('/shop' , ShopComponent::class);
 
 Route::get('/cart' , CartComponent::class)->name('product.cart');
+
+Route::get('/about-us' , AboutUsComponent::class)->name('about.us');
 
 Route::get('/checkout' , CheckoutComponent::class)->name('checkout');
 
@@ -120,5 +126,10 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function ()
     Route::get('/admin/contact-us',AdminContactComponent::class)->name('admin.contact');
 
     Route::get('admin/settings',AdminSettingComponent::class)->name('admin.settings');
+
+    //about us team
+    Route::get('admin/team-members', AdminTeamMembers::class)->name('admin.team_members');
+    Route::get('admin/addTeam-members',AdminAddTeamMemberComponent::class)->name('admin.addTeam_members');
+    Route::get('admin/editTeam-members/{member_id}',AdminEditTeamMembersComponent::class)->name('admin.editTeam_members');
 
 });
