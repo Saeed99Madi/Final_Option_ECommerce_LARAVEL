@@ -50,7 +50,6 @@ class CheckoutComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'ship_to_different'=>'required',
             'firstname'=>'required',
             'lastname'=>'required',
             'email'=>'required|email',
@@ -66,7 +65,7 @@ class CheckoutComponent extends Component
         if($this->ship_to_different)
         {
             $this->validateOnly($fields,[
-                'ship_to_different'=>'required',
+
                 's_firstname'=>'required',
                 's_lastname'=>'required',
                 's_email'=>'required|email',
@@ -93,7 +92,7 @@ class CheckoutComponent extends Component
     {
 
         $this->validate([
-            'ship_to_different'=>'required',
+
             'firstname'=>'required',
             'lastname'=>'required',
             'email'=>'required|email',
@@ -146,7 +145,6 @@ class CheckoutComponent extends Component
         if($this->ship_to_different==1)
         {
             $this->validate([
-                'ship_to_different'=>'required',
                 's_firstname'=>'required',
                 's_lastname'=>'required',
                 's_email'=>'required|email',
