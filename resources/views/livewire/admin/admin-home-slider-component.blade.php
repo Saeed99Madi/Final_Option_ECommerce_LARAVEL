@@ -51,8 +51,8 @@
                                     <td>{{$slider->status == 1 ? 'active' : 'Inactive'}}</td>
                                     <td>{{$slider->created_at}}</td>
                                     <td>
-                                        <a href="{{route('admin.edithomeslider',['slider_id'=>$slider->id])}}" class="fa fa-edit fa-2x">Edit</a>
-                                        <a href="#" wire:click.prevent="destroySlider({{$slider->id}})" style="margin-left: 10px ;" class="fa fa-times fa-2x text-danger">Delete</a>
+                                        <a href="{{route('admin.edithomeslider',['slider_id'=>$slider->id])}}" class="fa fa-edit fa-x">Edit</a>
+                                        <a href="#" wire:click.prevent="destroySlider({{$slider->id}})" style="margin-left: 10px ;" class="fa fa-times fa-x text-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
