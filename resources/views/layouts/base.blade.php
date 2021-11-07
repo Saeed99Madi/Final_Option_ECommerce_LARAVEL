@@ -229,7 +229,6 @@
 <script src="https://cdn.tiny.cloud/1/07t1eax5zrngq0008sasjfnkoj0viiahcrgwylaofixix4hb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 @livewireScripts
-
 @stack('scripts')
 </body>
 </html>
