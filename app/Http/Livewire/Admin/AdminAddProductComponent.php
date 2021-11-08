@@ -24,7 +24,6 @@ class AdminAddProductComponent extends Component
     public $quantity;
     public $image;
     public $category_id;
-
     //for product Gallery
     public $images;
     //--end for product Gallery
@@ -32,7 +31,6 @@ class AdminAddProductComponent extends Component
     {
         $this->stock_status ='instock';
         $this->featured=0;
-
     }
     public function generateSlug()
     {

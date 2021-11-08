@@ -95,7 +95,7 @@
                                                     <a title="Settings" href="{{route('admin.settings')}}">Settings</a>
                                                 </li>
                                                 <li class="menu-item" >
-                                                    <a title="Team Members Management" href="{{route('admin.team_members')}}">Team Members Management</a>
+                                                    <a title="Team Members Managements" href="{{route('admin.team_members')}}">Team Members Management</a>
                                                 </li>
                                                 <li class="menu-item" >
                                                     <a  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
