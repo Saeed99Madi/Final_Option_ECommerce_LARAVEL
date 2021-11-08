@@ -127,7 +127,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function ()
 
     Route::get('admin/settings',AdminSettingComponent::class)->name('admin.settings');
 
-    //about us team
+    //about us team//
     Route::get('admin/team-members', AdminTeamMembers::class)->name('admin.team_members');
     Route::get('admin/addTeam-members',AdminAddTeamMemberComponent::class)->name('admin.addTeam_members');
     Route::get('admin/editTeam-members/{member_id}',AdminEditTeamMembersComponent::class)->name('admin.editTeam_members');
